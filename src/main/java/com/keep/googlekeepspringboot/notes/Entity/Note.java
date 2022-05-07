@@ -1,12 +1,11 @@
 package com.keep.googlekeepspringboot.notes.Entity;
 
-import javax.persistence.Entity;
 import java.util.UUID;
 
 
 public class Note {
 
-    private UUID noteId;
+    private final UUID noteId;
     private String title;
     private String message;
 

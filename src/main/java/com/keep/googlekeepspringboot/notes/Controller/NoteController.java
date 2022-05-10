@@ -1,9 +1,7 @@
 package com.keep.googlekeepspringboot.notes.Controller;
-
 import com.keep.googlekeepspringboot.notes.Entity.Note;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.keep.googlekeepspringboot.notes.Service.impl.NoteService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,11 +10,16 @@ import java.util.List;
 @RestController
 public class NoteController {
 
+    NoteService noteService = new NoteService();
+
     @GetMapping("/getNotes")
     public @ResponseBody List<Note> getNotes(){
-        Note note1 = new Note();
-        return new ArrayList<>(
-                Arrays.asList(note1)
-        );
+        return noteService.getAllNotes();
+    }
+
+    @PostMapping("/addNote")
+    public @ResponseBody String addNote(@RequestBody Note note){
+        String noteId = noteService.addNote(note);
+        return noteId;
     }
 }

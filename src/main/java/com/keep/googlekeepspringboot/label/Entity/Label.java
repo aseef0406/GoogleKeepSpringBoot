@@ -1,15 +1,13 @@
 package com.keep.googlekeepspringboot.label.Entity;
 
-public class label {
+public class Label {
 	private int labelId;
 	private String label;
 	private long userId;
 	public int noteId;
 
-	label() {
-	}
 
-	label(String label) {
+	Label(String label) {
 		this.label = label;
 
 	}

@@ -1,4 +1,5 @@
 package com.keep.googlekeepspringboot.notes.Controller;
+import com.keep.googlekeepspringboot.notes.Dto.CreateNoteRequest;
 import com.keep.googlekeepspringboot.notes.Entity.Note;
 import com.keep.googlekeepspringboot.notes.Service.impl.NoteService;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,8 @@ public class NoteController {
     }
 
     @PostMapping("/addNote")
-    public @ResponseBody String addNote(@RequestBody Note note){
+    public @ResponseBody String addNote(@RequestBody CreateNoteRequest createNoteRequest){
+        Note note = noteService.getNote(createNoteRequest);
         String noteId = noteService.addNote(note);
         return noteId;
     }

@@ -16,7 +16,7 @@ import com.keep.googlekeepspringboot.label.Service.LabelServiceImpl;
 
 
 @RestController
-public class Controller {
+public class LabelController {
 	
 	LabelServiceImpl labelService=new LabelServiceImpl();
 

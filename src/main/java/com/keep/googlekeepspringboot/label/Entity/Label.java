@@ -1,10 +1,10 @@
 package com.keep.googlekeepspringboot.label.Entity;
 
 public class Label {
-	private int labelId;
+	private String labelId;
 	private String label;
 	private long userId;
-	public int noteId;
+	public String noteId;
 
 
 	Label(String label) {
@@ -12,11 +12,11 @@ public class Label {
 
 	}
 
-	public int getLabelId() {
+	public String getLabelId() {
 		return labelId;
 	}
 
-	public void setLabelId(int labelId) {
+	public void setLabelId(String labelId) {
 		this.labelId = labelId;
 	}
 
@@ -36,11 +36,11 @@ public class Label {
 		this.userId = userId;
 	}
 
-	public int getNoteId() {
+	public String getNoteId() {
 		return noteId;
 	}
 
-	public void setNoteId(int noteId) {
+	public void setNoteId(String noteId) {
 		this.noteId = noteId;
 	}
 

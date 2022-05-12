@@ -1,34 +1,34 @@
 package com.keep.googlekeepspringboot.label.Controller;
 
-import java.awt.Label;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.keep.googlekeepspringboot.label.Service.LableService;
+import com.keep.googlekeepspringboot.label.Entity.Label;
+import com.keep.googlekeepspringboot.label.Service.LabelServiceImpl;
+
+
 
 
 @RestController
 public class Controller {
 	
-	private LableService labelService;
+	LabelServiceImpl labelService=new LabelServiceImpl();
 
-	@RequestMapping(value="/getAllLabel",method=RequestMethod.GET)
-	 List<Label> getLabel(){
-		List<Label> labels = labelService.getAllLabel();
-		
- 		
-		 return null;
+	@RequestMapping(value="/getAllLabels",method=RequestMethod.GET)
+	public List<Label> getLabel(){
+		return labelService.getAllLabel();
 	 }
-	 
-	 @RequestMapping(value="/saveLabel",method=RequestMethod.POST)
-	    
-		public Label addLabel(@RequestBody Label label) {
-			return user;
+	
+	 @RequestMapping(value="/addLabel",method=RequestMethod.POST)
+		public String addLabel(@RequestBody Label label) {
+		 String labelId = labelService.addLabel(label);
+	        return labelId;
 			
 		}
 

@@ -7,8 +7,8 @@ public class Label {
 	public String noteId;
 
 
-	Label(String label) {
-		this.label = label;
+	public Label() {
+		
 
 	}
 

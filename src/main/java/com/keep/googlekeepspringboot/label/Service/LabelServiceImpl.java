@@ -16,7 +16,7 @@ public class LabelServiceImpl implements ILabelService {
 
 	@Override
 	public List<Label> getAllLabel() {
-		return new ArrayList<>(labelRepository.getLabels().values());
+		return new ArrayList<>(labelRepository.findAllLabel());
 	}
 	@Override
 	public String addLabel(Label label) {

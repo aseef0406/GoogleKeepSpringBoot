@@ -2,6 +2,7 @@ package com.keep.googlekeepspringboot.label.Controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,8 +21,8 @@ import com.keep.googlekeepspringboot.notes.Entity.Note;
 
 @RestController
 public class LabelController {
-	
-	LabelServiceImpl labelService=new LabelServiceImpl();
+	@Autowired
+	LabelServiceImpl labelService;
 
 	@RequestMapping(value="/getAllLabels",method=RequestMethod.GET)
 	public List<Label> getLabel(){

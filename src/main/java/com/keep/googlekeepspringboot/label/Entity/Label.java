@@ -12,6 +12,14 @@ public class Label {
 
 	}
 
+	public Label(String labelId, String label, long userId, String noteId) {
+		super();
+		this.labelId = labelId;
+		this.label = label;
+		this.userId = userId;
+		this.noteId = noteId;
+	}
+
 	public String getLabelId() {
 		return labelId;
 	}

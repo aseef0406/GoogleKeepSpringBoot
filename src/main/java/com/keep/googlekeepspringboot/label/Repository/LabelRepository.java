@@ -5,14 +5,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.keep.googlekeepspringboot.label.Entity.Label;
 import com.keep.googlekeepspringboot.notes.Entity.Note;
-
+@Repository
 public class LabelRepository implements ILabelRepository {
 
-	 @Autowired
-	    private JdbcTemplate  jdbcTemplate;
+	  @Autowired
+	    public JdbcTemplate  jdbcTemplate;
 	
 	private HashMap<String, Label> labels = new HashMap<>();
 
@@ -31,8 +32,11 @@ public class LabelRepository implements ILabelRepository {
 
 	@Override
 	public int saveLabel(Label label) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("jdbcTemplate in LabelRepository:"+jdbcTemplate);
+		        return jdbcTemplate.update(
+		                "insert into tbl_label (labelId, label,userId,noteId) values(?,?,?,?)",
+		                label.getLabelId(), label.getLabel(),label.getUserId(),label.getNoteId());
+		    
 	}
 
 	@Override

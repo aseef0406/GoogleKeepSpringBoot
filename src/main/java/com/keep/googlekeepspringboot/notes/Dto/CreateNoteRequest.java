@@ -8,8 +8,8 @@ public class CreateNoteRequest {
     public String title;
     public String message;
     public Reminder reminder;
-    public List<Collabrator> collabrators;
-    public Status status;
+    public String collabrators;
+    public String status;
     public Label label;
     public User user;
 

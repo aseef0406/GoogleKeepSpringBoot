@@ -12,10 +12,8 @@ public class Note {
     private Reminder reminder;
     private List<Collabrator> collabrator;
     private Status status;
-    private Label label;
+    private List<Label> labels;
     private User user;
-
-
 //    Notes
 //	/getNotes
 //    no parameter
@@ -49,7 +47,7 @@ public class Note {
 
 
     public Note() {
-        this.noteId = "Note_"+UUID.randomUUID().toString().substring(0,5);
+        this.noteId = "Note_"+UUID.randomUUID().toString().substring(0,4);
     }
 
     public String getNoteId() {
@@ -96,13 +94,6 @@ public class Note {
         this.status = status;
     }
 
-    public Label getLabel() {
-        return label;
-    }
-
-    public void setLabel(Label label) {
-        this.label = label;
-    }
 
     public User getUser() {
         return user;
@@ -110,6 +101,14 @@ public class Note {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Label> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<Label> labels) {
+        this.labels = labels;
     }
 
     @Override
@@ -121,7 +120,7 @@ public class Note {
                 ", reminder=" + reminder +
                 ", collabrator=" + collabrator +
                 ", status=" + status +
-                ", label=" + label +
+                ", label=" + labels +
                 ", user=" + user +
                 '}';
     }

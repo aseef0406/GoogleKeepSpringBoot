@@ -16,14 +16,13 @@ public class NoteService implements INoteService {
 
     @Autowired
     private NoteRepository noteRepository;
-
     public NoteService() {
         this.noteRepository = new NoteRepository();
     }
 
     @Override
     public List<Note> getAllNotes() {
-        return null;
+    	return new ArrayList<>(noteRepository.getAllNotes());
     }
 
     @Override

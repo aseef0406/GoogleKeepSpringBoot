@@ -9,7 +9,6 @@ public class Label {
 
 	public Label() {
 		
-
 	}
 
 	public Label(String labelId, String label, long userId, String noteId) {

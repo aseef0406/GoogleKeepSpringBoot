@@ -15,7 +15,13 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUserName() {
+    public User(String userId) {
+		super();
+		this.userId = userId;
+	}
+    
+
+	public String getUserName() {
         return userName;
     }
 

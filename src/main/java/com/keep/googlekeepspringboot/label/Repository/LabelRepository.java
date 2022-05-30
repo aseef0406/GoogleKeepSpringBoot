@@ -56,23 +56,36 @@ public class LabelRepository implements ILabelRepository {
 		return 0;
 	}
 
-	@Override
-	public List<Label> findAllLabel() {
-		 return jdbcTemplate.query("select * from tbl_label",new ResultSetExtractor<List<Label>>(){  
-			    public List<Label> extractData(ResultSet rs) throws SQLException,  
-			            DataAccessException {  
-			        List<Label> list=new ArrayList<Label>();  
-			        while(rs.next()){  
-			        Label e=new Label();  
-			        e.setLabelId(rs.getNString(1));  
-			        e.setLabel(rs.getNString(2));  
-			        e.setUserId(rs.getInt(3)); 
-			        e.setNoteId(rs.getNString(4));
-			        list.add(e);  
-			        }  
-			        return list;  
-			        } 
-			    });  
-			  }  
-	            
+	//@Override
+//	public List<Label> findAllLabel() {
+//		ResultSetExtractor<List<Label>> resultSetExtractor=new ResultSetExtractor<List<Label>>(){  
+//		    public List<Label> extractData(ResultSet rs) throws SQLException, DataAccessException{
+//		        List<Label> list=new ArrayList<Label>();  
+//		        while(rs.next()){  
+//		        Label e=new Label();  
+//		        e.setLabelId(rs.getNString(1));  
+//		        e.setLabel(rs.getNString(2));  
+//		        e.setUserId(rs.getInt(3)); 
+//		        e.setNoteId(rs.getNString(4));
+//		        list.add(e);  
+//		        }  
+//		        return list;  
+//		        } 
+//		    };
+//		    return jdbcTemplate.query("select * from tbl_label",resultSetExtractor);  
+//	  } 
+	
+	public List<Label>findAllLabel(){
+	        String sql = "SELECT * FROM tbl_label";
+	        return jdbcTemplate.query(
+	                sql,
+	                (rs, rowNum) ->
+	                        new Label(
+	                                rs.getString("labelId"),
+	                                rs.getString("label"),
+	                                rs.getLong("userId"),
+	                                rs.getString("noteId")
+	                        )
+	        );
+	    }
 	}

@@ -14,7 +14,11 @@ public class Reminder {
         this.reminderId = UUID.randomUUID().toString().substring(0,9);
     }
 
-    public String getReminderId() {
+    public Reminder(String reminder_id) {
+		this.reminderId = reminder_id;
+	}
+
+	public String getReminderId() {
         return reminderId;
     }
 

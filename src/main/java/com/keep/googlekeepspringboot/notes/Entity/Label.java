@@ -8,6 +8,10 @@ public class Label {
         this.labelId=labelId;
         this.labelName=labelName;
     }
+    public Label(String labelId) {
+        this.labelId=labelId;
+ 
+    }
 
     public String getLabelId() {
         return labelId;

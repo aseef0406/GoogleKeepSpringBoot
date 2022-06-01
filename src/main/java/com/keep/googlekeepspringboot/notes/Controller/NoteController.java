@@ -1,5 +1,6 @@
 package com.keep.googlekeepspringboot.notes.Controller;
 import com.keep.googlekeepspringboot.notes.Dto.CreateNoteRequest;
+import com.keep.googlekeepspringboot.notes.Dto.UpdateNoteRequest;
 import com.keep.googlekeepspringboot.notes.Entity.Note;
 import com.keep.googlekeepspringboot.notes.Service.impl.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,15 @@ public class NoteController {
         System.out.println(note);
         String noteId = noteService.addNote(note);
         System.out.println(note);
+        return noteId;
+    }
+    
+    @PutMapping("/updateNote")
+    public @ResponseBody String updateNote(@RequestBody UpdateNoteRequest updateNoteRequest){
+    	Note note = noteService.updateNoteField(updateNoteRequest);
+        //System.out.println(note);
+        String noteId = noteService.updateNote(note);
+        //System.out.println(note);
         return noteId;
     }
 }

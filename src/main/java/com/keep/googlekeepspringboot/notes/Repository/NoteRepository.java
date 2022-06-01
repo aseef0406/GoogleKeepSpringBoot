@@ -19,7 +19,7 @@ public class NoteRepository {
     public String addNote(Note note){
         String sql = "Insert into tbl_note values(?,?,?,?,?,?,?,?,?,?)";
         System.out.println(note);
-        int count = jdbcTemplate.update(sql,note.getNoteId(),note.getTitle(),
+        jdbcTemplate.update(sql,note.getNoteId(),note.getTitle(),
                 note.getMessage(),note.getStatus(),note.getReminder(),note.getCollabrator(),null,null,null,null);
         return note.getNoteId();
     }
@@ -40,6 +40,18 @@ public class NoteRepository {
 	                        )
 	        );
     }
+    
+    public String updateNote(Note note){
+
+    	System.out.println("note.getNoteId() inside update Note"+" "+note.getNoteId());
+    	if(note.getNoteId()!=null) {
+    		String updateQuery = "update tbl_note set title = ? , message = ? where noted_id = ?";
+    		jdbcTemplate.update(updateQuery, note.getTitle(), note.getMessage(),note.getNoteId());
+    	}
+       
+        return note.getNoteId();
+    }
 }
+
 
 

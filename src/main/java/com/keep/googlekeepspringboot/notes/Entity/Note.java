@@ -68,7 +68,6 @@ public class Note {
 }
 
 public List<Collabrator>getCollaborators(String collabrators_id){
-	//collabrators_id="1,2,3"
 	if(collabrators_id!=null) {
 		String[] getting_all_collab_ids = collabrators_id.split(",");
 		 ArrayList<Collabrator> l=new ArrayList<Collabrator>();
@@ -123,6 +122,9 @@ public Status getStatus(int status) {
 	public String getNoteId() {
         return noteId;
     }
+	public void setNoteId(String noteId) {
+		this.noteId=noteId;
+	}
 
     public String getTitle() {
         return title;

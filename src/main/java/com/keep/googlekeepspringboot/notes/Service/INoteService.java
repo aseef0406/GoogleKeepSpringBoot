@@ -8,4 +8,5 @@ public interface INoteService {
 
     List<Note> getAllNotes();
     String addNote(Note note);
+    String updateNote(Note note);
 }

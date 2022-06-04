@@ -14,7 +14,9 @@ public class User {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-
+    public User() {
+    	
+    }
     public User(String userId) {
 		super();
 		this.userId = userId;

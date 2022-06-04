@@ -41,15 +41,21 @@ public class NoteService implements INoteService {
 
     public Note getNote(CreateNoteRequest createNoteRequest){
         Note note = new Note();
+        //need to copy from createNote request to note all the field
         note.setTitle(createNoteRequest.title);
         note.setMessage(createNoteRequest.message);
        return note;
     }
     public Note updateNoteField(UpdateNoteRequest updateNoteRequest){
+    	 System.out.println(updateNoteRequest);
         Note note = new Note();
-        note.setNoteId(updateNoteRequest.noteId);
-        note.setTitle(updateNoteRequest.title);
-        note.setMessage(updateNoteRequest.message);
+        //need to copy update note request to note
+        if(updateNoteRequest.noteId!=null) {
+        	note.setNoteId(updateNoteRequest.noteId);
+            note.setTitle(updateNoteRequest.title);
+            note.setMessage(updateNoteRequest.message);
+        }
+        
        return note;
     }
 }

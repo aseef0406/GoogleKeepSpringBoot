@@ -33,10 +33,11 @@ public class NoteController {
     
     @PutMapping("/updateNote")
     public @ResponseBody String updateNote(@RequestBody UpdateNoteRequest updateNoteRequest){
+    	 System.out.println(updateNoteRequest);
     	Note note = noteService.updateNoteField(updateNoteRequest);
-        //System.out.println(note);
+        System.out.println(note);
         String noteId = noteService.updateNote(note);
-        //System.out.println(note);
+        System.out.println(note);
         return noteId;
     }
 }
